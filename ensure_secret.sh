@@ -35,7 +35,7 @@ fi
 FULL_SECRET_NAME="${SECRET_BASE_NAME}_${HASH}"
 
 # Check if secret already exists
-if docker secret Inspect "$FULL_SECRET_NAME" >/dev/null 2>&1; then
+if docker secret inspect "$FULL_SECRET_NAME" >/dev/null 2>&1; then
     # Secret exists, nothing to do
     :
 else
