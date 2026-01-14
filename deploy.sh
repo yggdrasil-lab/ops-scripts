@@ -8,6 +8,14 @@ SKIP_BUILD=false
 STACK_NAME=""
 COMPOSE_FILES=()
 
+# Load environment variables from .env if it exists
+if [ -f .env ]; then
+    echo "Loading environment variables from .env..."
+    set -a
+    source .env
+    set +a
+fi
+
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
