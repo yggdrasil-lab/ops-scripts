@@ -83,6 +83,11 @@ else
     echo "Building images..."
     # shellcheck disable=SC2086
     docker compose $BUILD_ARGS build
+    
+    if [ -n "$REGISTRY_PREFIX" ]; then
+        echo "Pushing images to registry..."
+        docker compose $BUILD_ARGS push
+    fi
 fi
 
 # --- Deploy ---
