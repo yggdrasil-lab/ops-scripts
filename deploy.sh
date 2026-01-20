@@ -94,6 +94,6 @@ fi
 echo "Deploying ${STACK_NAME} stack to Swarm..."
 # --prune: Remove services that are no longer referenced matched by the compose files
 # shellcheck disable=SC2086
-docker stack deploy --prune $DEPLOY_ARGS "${STACK_NAME}"
+docker stack deploy --with-registry-auth --prune $DEPLOY_ARGS "${STACK_NAME}"
 
 echo "Deployment command submitted. Check status with: docker stack services ${STACK_NAME}"
