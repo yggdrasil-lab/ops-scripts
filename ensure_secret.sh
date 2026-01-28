@@ -40,7 +40,7 @@ if docker secret inspect "$FULL_SECRET_NAME" >/dev/null 2>&1; then
     :
 else
     # Create the secret
-    echo "$SECRET_CONTENT" | docker secret create "$FULL_SECRET_NAME" - >/dev/null
+    printf "%s" "$SECRET_CONTENT" | docker secret create "$FULL_SECRET_NAME" - >/dev/null
 fi
 
 # Output only the name to stdout so it can be captured
