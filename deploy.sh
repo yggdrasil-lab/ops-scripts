@@ -82,7 +82,7 @@ if [ "$SKIP_BUILD" = true ]; then
 else
     echo "Building images..."
     # shellcheck disable=SC2086
-    docker compose $BUILD_ARGS build
+    docker compose $BUILD_ARGS build --pull
     
     if [ -n "$REGISTRY_PREFIX" ]; then
         echo "Pushing images to registry..."
